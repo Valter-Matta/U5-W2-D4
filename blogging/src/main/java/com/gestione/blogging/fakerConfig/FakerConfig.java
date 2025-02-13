@@ -1,0 +1,16 @@
+package com.gestione.blogging.fakerConfig;
+
+import com.github.javafaker.Faker;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
+
+import java.util.Locale;
+
+@Configuration
+public class FakerConfig {
+	@Bean
+	public Faker faker () {
+		return new Faker(Locale.ITALIAN);
+	}
+}
