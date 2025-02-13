@@ -15,6 +15,7 @@ public class EmailService {
 		this.mailSender = mailSender;
 	}
 
+
 	public void sendEmail(String to, String subject, String body) throws MessagingException {
 		if(body==null) body = "mail di default";
 		MimeMessage message = mailSender.createMimeMessage();

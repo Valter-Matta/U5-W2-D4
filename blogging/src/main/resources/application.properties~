@@ -1,4 +1,5 @@
 spring.application.name=blogging
+
 spring.jpa.hibernate.ddl-auto=create-drop
 spring.sql.init.mode=always
 spring.datasource.driverClassName=org.postgresql.Driver

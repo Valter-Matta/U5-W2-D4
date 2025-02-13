@@ -26,8 +26,8 @@ public class AutoreService {
 	private final EmailService emailService;
 	@Value ("${messages.new.autore.subject}")
 	private String newAutoreSubject;
-
-	private String newAutoreBody="L'autore è stato registrato con successo";
+	@Value ("${messages.new.autore.body}")
+	private String newAutoreBody;
 	private String newAutoreHtmlBody;
 
 	//GET /authors => ritorna la lista di autori
@@ -67,6 +67,9 @@ public class AutoreService {
 		autoreRepository.save(autore);
 		GeneralResponse resp = new GeneralResponse();
 		BeanUtils.copyProperties(autore, resp);
+
+
+
 		try {
 			emailService.sendEmail(autore.getEmail(), newAutoreSubject, newAutoreBody + " " + autore.getEmail());
 		} catch (MessagingException e) {
